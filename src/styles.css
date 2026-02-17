@@ -1,0 +1,70 @@
+:root {
+  --bg-primary: #faf8f5;
+  --bg-surface: #ffffff;
+  --bg-raised: #f5f2ed;
+  --text-primary: #2d2a26;
+  --text-secondary: #5c574f;
+  --text-tertiary: #8a847a;
+  --accent: #8b6f4e;
+  --accent-hover: #6d5639;
+  --border: #e5e0d8;
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.85rem;
+  --fs-base: 0.95rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.15rem;
+  --fs-xl: 1.35rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.25rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.3;
+}

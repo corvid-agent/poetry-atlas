@@ -1,0 +1,39 @@
+<header class="app-header">
+  <div class="header-inner">
+    <a routerLink="/" class="app-logo">poetry-atlas</a>
+    <nav class="desktop-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/poets" routerLinkActive="active">Poets</a>
+      <a routerLink="/search" routerLinkActive="active">Search</a>
+      <a routerLink="/discover" routerLinkActive="active">Discover</a>
+      <a routerLink="/favorites" routerLinkActive="active">Favorites</a>
+    </nav>
+  </div>
+</header>
+
+<main class="app-main">
+  <router-outlet />
+</main>
+
+<nav class="mobile-nav">
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <span class="nav-icon">⌂</span>
+    <span class="nav-label">Home</span>
+  </a>
+  <a routerLink="/poets" routerLinkActive="active">
+    <span class="nav-icon">✍</span>
+    <span class="nav-label">Poets</span>
+  </a>
+  <a routerLink="/search" routerLinkActive="active">
+    <span class="nav-icon">⌕</span>
+    <span class="nav-label">Search</span>
+  </a>
+  <a routerLink="/discover" routerLinkActive="active">
+    <span class="nav-icon">✨</span>
+    <span class="nav-label">Discover</span>
+  </a>
+  <a routerLink="/favorites" routerLinkActive="active">
+    <span class="nav-icon">♥</span>
+    <span class="nav-label">Favorites</span>
+  </a>
+</nav>
