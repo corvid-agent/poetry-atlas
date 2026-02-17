@@ -4,6 +4,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.25);
 }
 
 .header-inner {
@@ -19,7 +20,7 @@
   font-family: var(--font-serif);
   font-size: var(--fs-xl);
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--accent);
   letter-spacing: -0.5px;
 }
 
@@ -36,10 +37,17 @@
   transition: color 0.2s, border-color 0.2s;
 }
 
-.desktop-nav a:hover,
-.desktop-nav a.active {
+.desktop-nav a:hover {
   color: var(--text-primary);
   border-bottom-color: var(--accent);
+}
+
+.desktop-nav a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: rgba(212, 165, 116, 0.08);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .app-main {
@@ -60,6 +68,7 @@
   border-top: 1px solid var(--border);
   padding: var(--space-sm) 0;
   z-index: 100;
+  box-shadow: 0 -1px 8px rgba(0,0,0,0.25);
 }
 
 .mobile-nav a {

@@ -50,7 +50,7 @@ import { LoadingSpinnerComponent } from "../../shared/components/loading-spinner
     .hero-title {
       font-family: var(--font-serif);
       font-size: var(--fs-3xl);
-      color: var(--text-primary);
+      color: var(--accent);
       margin-bottom: var(--space-sm);
       letter-spacing: -1px;
     }
@@ -84,7 +84,7 @@ import { LoadingSpinnerComponent } from "../../shared/components/loading-spinner
       transition: box-shadow 0.2s, transform 0.2s;
     }
     .quick-link:hover {
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-md);
       transform: translateY(-2px);
     }
     .ql-icon { font-size: 2rem; margin-bottom: var(--space-sm); }

@@ -38,7 +38,7 @@ import { FavoritesService } from "../../core/services/favorites.service";
       transition: box-shadow 0.2s, transform 0.2s;
     }
     .poem-card:hover {
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-md);
       transform: translateY(-2px);
     }
     .poem-card-header {
