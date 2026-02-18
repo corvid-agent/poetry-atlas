@@ -1,59 +1,35 @@
-# PoetryAtlas
+# Poetry Atlas
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Interactive poetry explorer for discovering and reading classic poems, powered by PoetryDB.
 
-## Development server
+**Live:** [corvid-agent.github.io/poetry-atlas](https://corvid-agent.github.io/poetry-atlas/)
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+- Browse poems by poet, title, or lines
+- Full-text search across the poetry collection
+- Random poem discovery
+- Poet profiles with statistics and bibliographies
+- Favorites collection
+- Mobile-optimized reading experience
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tech Stack
 
-## Code scaffolding
+- Angular 21 (standalone components, signals, OnPush)
+- PoetryDB API (no API key required)
+- TypeScript strict mode
+- CSS custom properties with warm accent theme
+- Georgia serif for poem display
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Development
 
 ```bash
-ng build
+npm install
+npm start
+npm test
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## License
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT
