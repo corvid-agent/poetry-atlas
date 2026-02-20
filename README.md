@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/preview.png" alt="poetry-atlas preview" width="100%"></p>
+
 # Poetry Atlas
 
 Interactive poetry explorer for discovering and reading classic poems, powered by PoetryDB.
