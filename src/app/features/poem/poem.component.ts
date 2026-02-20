@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from "@angular/core";
+import { Component, inject, OnInit, OnDestroy, signal } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { PoetryService } from "../../core/services/poetry.service";
 import { FavoritesService } from "../../core/services/favorites.service";
@@ -31,6 +31,10 @@ import { LoadingSpinnerComponent } from "../../shared/components/loading-spinner
           <button class="action-btn" (click)="toggleReadingList()"
             [class.active]="readingListService.isInList(poem()!)">
             {{ readingListService.isInList(poem()!) ? "✓ In Reading List" : "+ Reading List" }}
+          </button>
+          <button class="action-btn" (click)="toggleSpeech()"
+            [class.active]="isSpeaking()">
+            {{ isSpeaking() ? (isPaused() ? '▶ Resume' : '■ Stop') : '♪ Read Aloud' }}
           </button>
         </div>
 
@@ -127,7 +131,7 @@ import { LoadingSpinnerComponent } from "../../shared/components/loading-spinner
     }
   `]
 })
-export class PoemComponent implements OnInit {
+export class PoemComponent implements OnInit, OnDestroy {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly poetryService = inject(PoetryService);
@@ -136,6 +140,9 @@ export class PoemComponent implements OnInit {
 
   readonly poem = signal<Poem | null>(null);
   readonly loading = signal(true);
+  readonly isSpeaking = signal(false);
+  readonly isPaused = signal(false);
+  private utterance: SpeechSynthesisUtterance | null = null;
 
   ngOnInit(): void {
     const title = this.route.snapshot.queryParamMap.get("title") ?? "";
@@ -164,5 +171,30 @@ export class PoemComponent implements OnInit {
   toggleReadingList(): void {
     const p = this.poem();
     if (p) this.readingListService.toggle(p);
+  }
+
+  toggleSpeech(): void {
+    const synth = window.speechSynthesis;
+    if (this.isSpeaking()) {
+      synth.cancel();
+      this.isSpeaking.set(false);
+      this.isPaused.set(false);
+      return;
+    }
+    const p = this.poem();
+    if (!p) return;
+    const text = `${p.title}, by ${p.author}.\n\n${p.lines.join('\n')}`;
+    this.utterance = new SpeechSynthesisUtterance(text);
+    this.utterance.rate = 0.9;
+    this.utterance.onend = () => {
+      this.isSpeaking.set(false);
+      this.isPaused.set(false);
+    };
+    this.isSpeaking.set(true);
+    synth.speak(this.utterance);
+  }
+
+  ngOnDestroy(): void {
+    window.speechSynthesis.cancel();
   }
 }
