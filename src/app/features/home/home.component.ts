@@ -105,9 +105,30 @@ export class HomeComponent implements OnInit {
   readonly loading = signal(true);
 
   ngOnInit(): void {
+    const today = new Date().toISOString().slice(0, 10);
+    const cacheKey = 'poetry-atlas-potd';
+
+    try {
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        const { date, poem } = JSON.parse(cached);
+        if (date === today && poem) {
+          this.dailyPoem.set(poem);
+          this.loading.set(false);
+          return;
+        }
+      }
+    } catch {}
+
     this.poetryService.getRandom(1).subscribe(poems => {
-      this.dailyPoem.set(poems[0] ?? null);
+      const poem = poems[0] ?? null;
+      this.dailyPoem.set(poem);
       this.loading.set(false);
+      if (poem) {
+        try {
+          localStorage.setItem(cacheKey, JSON.stringify({ date: today, poem }));
+        } catch {}
+      }
     });
   }
 }
