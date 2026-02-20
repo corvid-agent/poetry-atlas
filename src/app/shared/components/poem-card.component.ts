@@ -7,7 +7,7 @@ import { FavoritesService } from "../../core/services/favorites.service";
   selector: "app-poem-card",
   standalone: true,
   template: `
-    <article class="poem-card" (click)="openPoem()">
+    <article class="poem-card" (click)="openPoem()" (keydown.enter)="openPoem()" tabindex="0" role="button" [attr.aria-label]="poem().title + ' by ' + poem().author">
       <div class="poem-card-header">
         <h3 class="poem-card-title">{{ poem().title }}</h3>
         <button class="fav-btn" (click)="toggleFav(\$event)"
@@ -59,7 +59,12 @@ import { FavoritesService } from "../../core/services/favorites.service";
       font-size: var(--fs-xl);
       color: var(--accent);
       cursor: pointer;
-      padding: 0;
+      padding: var(--space-xs);
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       line-height: 1;
       flex-shrink: 0;
     }

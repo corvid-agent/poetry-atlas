@@ -30,7 +30,8 @@ import { LoadingSpinnerComponent } from "../../shared/components/loading-spinner
       border: none;
       color: var(--accent);
       font-size: var(--fs-sm);
-      padding: 0;
+      padding: var(--space-xs) var(--space-sm);
+      min-height: 44px;
       margin-bottom: var(--space-lg);
       cursor: pointer;
     }
