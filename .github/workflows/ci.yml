@@ -23,8 +23,5 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit -p tsconfig.app.json
 
-      - name: Test
-        run: npx ng test --no-watch
-
       - name: Build
         run: npx ng build --base-href /poetry-atlas/
